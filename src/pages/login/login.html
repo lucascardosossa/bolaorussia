@@ -6,18 +6,19 @@
                     <br>
                     <br>
                     <br>
+                    <form [formGroup]="form">
                     <ion-list no-lines>
                         <ion-item>
-                            <ion-input type="email" placeholder="Email"></ion-input>
+                            <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
                         </ion-item>
                         <ion-item>
-                            <ion-input type="password" placeholder="Senha" ></ion-input>
+                            <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
                         </ion-item>
                         <ion-item>
-                                <button ion-button block large >Entrar</button>
+                                <button ion-button block large (click)="submit()" [disabled]="!form.valid">Entrar</button>
                         </ion-item>
                     </ion-list>
-                    
+                </form>
             </ion-col>
         </ion-row>
     </ion-grid>
@@ -26,7 +27,7 @@
 <ion-footer>
     <ion-toolbar text-center>
         <ion-buttons small ion-button>
-            <button><small>Ainda não tem conta? Faça seu cadastro.</small></button>
+            <button (click)="goToSignup()"><small>Ainda não tem conta? Faça seu cadastro.</small></button>
         </ion-buttons>
     </ion-toolbar>
 </ion-footer>

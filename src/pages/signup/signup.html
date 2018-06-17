@@ -7,21 +7,23 @@
                         <br>
                         <br>
                         <br>
+                        <form [formGroup]="form">
                         <ion-list no-lines>
                             <ion-item>
-                                <ion-input type="email" placeholder="Email"></ion-input>
+                                <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
                             </ion-item>
                             <ion-item>
-                                <ion-input type="password" placeholder="Senha" ></ion-input>
+                                <ion-input type="password" placeholder="Senha" formControlName="password"></ion-input>
                             </ion-item>
                             <ion-item>
-                                    <ion-input type="password" placeholder="Confirmar Senha" ></ion-input>
+                                    <ion-input type="password" placeholder="Confirmar Senha" formControlName="confirmPassword"></ion-input>
                             </ion-item>
                             <ion-item>
-                                    <button ion-button block large >Cadastrar</button>
+                                    <button ion-button block large (click)="submit()" [disabled]="!form.valid">Cadastrar</button>
                             </ion-item>
+                            
                         </ion-list>
-                        
+                    </form>
                 </ion-col>
             </ion-row>
         </ion-grid>
